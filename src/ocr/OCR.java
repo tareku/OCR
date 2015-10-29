@@ -11,13 +11,14 @@ import net.sourceforge.tess4j.TesseractException;
 public class OCR {
 
     public static void main(String[] args) {
-        for (int i = 1; i < 4; i++) {
-            File imageFile = new File("..\\OCR\\src\\Images\\Image"+i+".png");
+        for (int i = 1; i < 5; i++) {
+            File imageFile = new File("..\\OCR\\src\\Images\\Image"+i+".jpg");
             Tesseract instance;
             instance = Tesseract.getInstance();
             try {
                 instance.setDatapath("..\\OCR\\tessdata");
                 String result = instance.doOCR(imageFile);
+                System.out.println("Image "+i);
                 System.out.println(result);
             } catch (TesseractException e) {
                 System.err.println(e.getMessage());
